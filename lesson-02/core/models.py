@@ -30,6 +30,10 @@ class Restaurant(models.Model):
     def __str__(self):
         return f"Name of Restaurant: {self.name} Type of Restaurant: {self.restaurant_type}"
 
+    def save(self, *args, **kwargs):
+        print(self._state.adding)
+        super().save(*args, **kwargs)
+
 
 class Rating(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)

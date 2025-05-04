@@ -7,12 +7,6 @@ from pprint import pprint
 
 def run():
 
-    user = User.objects.first()
-    restaurant = Restaurant.objects.first()
+    Restaurant.objects.all().delete()
 
-    rating = Rating(restaurant=restaurant, user=user, rating=9)
-
-    rating.full_clean()
-    rating.save()
-
-    # pprint(connection.queries)
+    pprint(connection.queries)
